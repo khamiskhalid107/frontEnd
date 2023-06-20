@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Farmer from '../page/Farmer'
 import Product from '../page/Product'
 
+
 function Navbar() {
   return (
     <div>

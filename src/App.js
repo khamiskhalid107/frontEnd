@@ -10,6 +10,7 @@ import Buyer from "./page/Buyer";
 
 
 
+
 function App() {
   return (
     // <div className="App">
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Navbar/>}/>
         <Route path="product" element={<Product/>}/>
         <Route path="buyer" element={<Buyer/>}/>
+        <Route path="addtable" element={<addtable/>}/>
       </Routes>
     </BrowserRouter>
   );
