@@ -20,9 +20,9 @@ function Navbar() {
     <ul>
     {/* <li><a href="#"><Link to='about'>{<Farmer />}ffff</Link></a></li><br></br> */}
 
-      <li><a href="#"><Link to='farmer'>  Farmer</Link></a></li><br></br>
-      <li><a href="#"><Link to='product'>Product</Link></a></li><br></br>
-      <li><a href="#"><Link to='buyer'>Buyer</Link></a></li>
+      <li><a href="#"><Link to='/farmer'>  Farmer</Link></a></li><br></br>
+      <li><a href="#"><Link to='/product'>Product</Link></a></li><br></br>
+      <li><a href="#"><Link to='/buyer'>Buyer</Link></a></li>
     </ul>
   </nav>
   

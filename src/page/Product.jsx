@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './Product.css';
 import Productservice from '../service/Productservice';
 import axios from 'axios';
-
-
+import Addproduct from './Addproduct';
+import { Link } from 'react-router-dom';
 
 const Product = () => {
   //const [products, setProducts] = useState([]);
 
-  const [datas , setData] = useState ([]);
+  const [datas, setData] = useState([]);
 
   useEffect(() => {
     fetchAll();
@@ -28,27 +28,39 @@ const Product = () => {
     axios.delete(`http://localhost:8080/Product/delete${productId}`)
     .then(response => {
        alert("Delete successfull");
+       window.location.reload();
     })
     .catch(error => {
         console.log("error");
     })
   }
-    //
-    
-//   const handleUpdate = (productId) => {
-//     // Implement the logic to update the product
-//     // You can navigate to a different page or show a form for updating the product
-//   };
 
-//   const handleAddProduct = () => {
-//     // Implement the logic to add a new product
-//     // You can navigate to a different page or show a form for adding a new product
-//   };
+  const handleInsert = () => {
+    const proId = 1;
+    const proPrice = 100;
+    const proName = "Product Name";
+    const proType = "Product Type";
+
+    const product = {
+      ProId: proId,
+      ProPrice: proPrice,
+      ProName: proName,
+      ProType: proType
+    };
+
+    axios.post('http://localhost:8080/Product/add', product)
+    .then(response => {
+      alert("Product inserted successfully");
+    })
+    .catch(error => {
+      console.log("error");
+    })
+  };
 
   return (
     <div>
       <h2>Product List</h2>
-      <button >Add Product</button>
+      <Link to={"/addproduct"}><button>Add Product</button></Link>
 
       <table>
         <thead>
@@ -78,6 +90,7 @@ const Product = () => {
           ))};
         </tbody>
       </table>
+      <button onClick={handleInsert}>Insert Product</button>
     </div>
   );
 }

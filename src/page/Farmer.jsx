@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Farmer.css';
 import Farmerservice from '../service/Farmerservice';
 import axios from 'axios';
+import Addfarmer from './Addfarmer';
 import { Link } from 'react-router-dom';
 
 
@@ -12,15 +13,22 @@ function Farmer() {
     fetchAll();
   }, []);
 
+  
+
   const fetchAll = async () => {
     const response = await axios.get('http://localhost:8080/Farmer/allFarmer');
     setFarmers(response.data);
   };
 
+  const deleteFarmer = async (id) => {
+    await Farmerservice.deleteFarmer(id);
+    fetchAll();
+  };
+
   return (
     <div>
       <h2>Farmer List</h2>
-      <button>Add Farmer</button>
+      <Link to={'/addfarmer'}><button>Add Farmer</button></Link>
 
       <table>
         <thead>
@@ -43,8 +51,7 @@ function Farmer() {
               <td>{farmer.fgender}</td>
               <td>{farmer.email}</td>
               <td>
-                
-                <button>Delete</button>
+                <button onClick={() => deleteFarmer(farmer.id)}>Delete</button>
                 <button>Update</button>
               </td>
             </tr>
