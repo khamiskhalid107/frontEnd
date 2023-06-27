@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 function Loginf() {
   return (
-    <div>
+    <div >
        <h1>LOGIN FORM</h1>
 
       

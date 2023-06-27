@@ -1,4 +1,4 @@
-/* 
+
 .main-parent
 {
     width: 100%;
@@ -51,13 +51,13 @@
 }
  button
 {
-    padding: 13px 30px;
-    background-color: #f57224;
+    /* padding: 13px 30px; */
+    background-color: #609eb0;
     outline: none;
     border: none;
-    color: #fff;
+    /* color: #fff; */
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 10px;
     cursor: pointer;
 }
 .account-have
@@ -73,15 +73,15 @@
     text-decoration: none;
     font-family:sans-serif;
 }
-div{
+div {
    
-    padding: 14px  ;
+    /* padding: 14px  ; */
     border: 1px solid rgba(0,0,0,0.352);
     outline: none;
-    background-color: transparent;
-    margin-bottom: 22px;
+    /* background-color: transparent; */
+    /* margin-bottom: 22px; */
     font-size: 15px;
     font-family: sans-serif;
     text-align: center;
     align-content: center;
-} */
+}

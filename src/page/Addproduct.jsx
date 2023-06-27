@@ -6,22 +6,24 @@ import React, { useState } from 'react'
 
 function Addproduct() {
 //const[fname,setProduct_Id]=useState([]);
-const[ProType,setProduct_Type]=useState([]);
-const[price,setProduct_price]=useState([]);
-const[proname,setProduct_Name]=useState([]);
+  const[formdata,setProduct]=useState({
+    ProType:'',
+    ProPrice:'',
+    ProName:'',
+
+  });
+
+  const handleChange = (event) =>{
+    setProduct({...formdata, [event.target.name]: event.target.value});
+  };
+//const[price,setProduct_price]=useState([]);
+//const[proname,setProduct_Name]=useState([]);
 
 const handSubmit=(event) =>{
   event.preventDefault();
-  const mydata={
+  //const mydata={
     //ProId:fname,   //taken from backend {Proid,ProType,price,name}
-    ProType:ProType,
-     ProPrice:price,
-    ProName:proname,
-
-    
-
-  };
-  axios.post('http://localhost:8080/Product/add', mydata)
+    axios.post('http://localhost:8080/Product/add', formdata)
     .then(response => {
       console.log(response.data);
       alert("Product inserted successfully");
@@ -30,6 +32,11 @@ const handSubmit=(event) =>{
       console.log("error");
     })
   };
+
+    
+
+  
+
 
 
   return (
@@ -43,13 +50,13 @@ const handSubmit=(event) =>{
 
 
 <label for="price">Product price:</label><br/>
-<input value={ProType}onChange={Event=>setProduct_Type(Event.target.value)} type="text" id="pro_price" /><br/>
+<input value={formdata.ProPrice} onChange={handleChange}  type="text" name="ProPrice" /><br/>
 
 <label for="ProType">Product_Type</label><br/>
-<input value={price}onChange={Event=>setProduct_price(Event.target.value)}type="text" id="pro_type"  /><br/><br/>
+<input value={formdata.ProType} onChange={handleChange} type="text" name="ProType"  /><br/><br/>
 
 <label for="Proname">Product_Name:</label><br/>
-<input value={proname}onChange={Event=>setProduct_Name(Event.target.value)}type="name" id="Pro_Name"  /><br/>
+<input value={formdata.ProName}  onChange={handleChange} type="name" name="ProName"  /><br/>
 
 
 

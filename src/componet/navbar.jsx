@@ -33,9 +33,9 @@ function Navbar() {
   </article>
 </section>
 
-<footer>
+{/* <footer>
   <p>Footer</p>
-</footer>
+</footer> */}
     </div>
   )
 }
