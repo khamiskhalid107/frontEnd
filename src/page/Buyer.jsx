@@ -18,6 +18,17 @@ function Buyer() {
     setBuyers(response.data);
   };
 
+  const handleDelete = (BuyerId) => {
+    axios.delete(`http://localhost:8080/Buyer/delete${BuyerId}`)
+    .then(response => {
+       alert("Delete successfully");
+       window.location.reload();
+    })
+    .catch(error => {
+        console.log("error");
+    })
+  }
+
   return (
     <div>
       <h2>Buyer List</h2>
@@ -45,7 +56,7 @@ function Buyer() {
               <td>{buyer.BuyerName}</td>
               <td>
                 
-                <button>Delete</button>
+              <button onClick={() => handleDelete(buyer.BuyerId)}>Delete</button>
                 <Link to={'/Addbuyer'}><button>Add Buyer</button></Link>
                 <button>Update</button>
               </td>
