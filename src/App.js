@@ -9,6 +9,7 @@ import Addfarmer from "./page/Addfarmer";
 import Addbuyer from "./page/Addbuyer";
 import Loginf from "./componet/Loginf";
 import Registration from "./componet/Registration";
+import Editproduct from "./page/Editproduct";
 
 
 // import Addtable from "./page/Addtable";
@@ -37,6 +38,7 @@ function App() {
         <Route path="addbuyer" element={<Addbuyer/>}/>
         <Route path="/" element={<Loginf/>}/>
         <Route path="" element={<Registration/>}/>
+        <Route path="edit/:ProId" element={<Editproduct/>}/>
         
         {/* <Route path="addtable" element={<Addtable/>}/> */}
       </Routes>

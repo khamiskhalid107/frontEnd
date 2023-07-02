@@ -21,7 +21,7 @@ function Buyer() {
   return (
     <div>
       <h2>Buyer List</h2>
-      <Link to={'/Addbuyer'}><button>Add Buyer</button></Link>
+      
 
       <table>
         <thead>
@@ -46,6 +46,7 @@ function Buyer() {
               <td>
                 
                 <button>Delete</button>
+                <Link to={'/Addbuyer'}><button>Add Buyer</button></Link>
                 <button>Update</button>
               </td>
             </tr>

@@ -15,7 +15,7 @@ function Addfarmer() {
     };
     const handSubmit=(event) =>{
       event.preventDefault();
-      axios.post('http://localhost:8080:Farmer/add', formdata)
+      axios.post('http://localhost:8080/Farmer/add', formdata)
       .then(response => {
         console.log(response.data);
         alert("Farmer inserted successfully");

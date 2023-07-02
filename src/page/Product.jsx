@@ -60,7 +60,7 @@ const Product = () => {
   return (
     <div>
       <h2>Product List</h2>
-      <Link to={"/addproduct"}><button>Add Product</button></Link>
+      
 
       <table>
         <thead>
@@ -83,14 +83,15 @@ const Product = () => {
               <td>{item.ProType}</td>
 
               <td>
-                <button >Update</button>
+                <Link to={`/edit/${item.ProId}`}><button >Update</button></Link>
+                <Link to={"/addproduct"}><button>Add Product</button></Link>
                 <button  onClick={() => handleDelete(item.ProId)}>Delete</button>
               </td>
             </tr>
           ))};
         </tbody>
       </table>
-      <button onClick={handleInsert}>Insert Product</button>
+      {/* <button onClick={handleInsert}>Insert Product</button> */}
     </div>
   );
 }

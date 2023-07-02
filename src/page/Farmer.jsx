@@ -20,16 +20,21 @@ function Farmer() {
     setFarmers(response.data);
   };
 
-  const deleteFarmer = async (id) => {
-    await Farmerservice.deleteFarmer(id);
-    fetchAll();
-  };
+  const handleDelete = (farmerId) => {
+    axios.delete(`http://localhost:8080/Farmer/delete/${farmerId}`)
+    .then(response => {
+       alert("Delete successfull");
+       window.location.reload();
+    })
+    .catch(error => {
+        console.log("error");
+    })
+  }
 
   return (
     <div>
       <h2>Farmer List</h2>
-      <Link to={'/addfarmer'}><button>Add Farmer</button></Link>
-
+      
       <table>
         <thead>
           <tr>
@@ -51,7 +56,9 @@ function Farmer() {
               <td>{farmer.fgender}</td>
               <td>{farmer.email}</td>
               <td>
-                <button onClick={() => deleteFarmer(farmer.id)}>Delete</button>
+                <button onClick={() => handleDelete(farmer.FarmerId)}>Delete</button>
+                <Link to={'/addfarmer'}><button>Add Farmer</button></Link>
+
                 <button>Update</button>
               </td>
             </tr>
